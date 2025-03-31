@@ -80,8 +80,6 @@ const Navbar: React.FC = () => {
     { href: "/experience", label: "Experience." },
   ];
 
-
-
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50"
@@ -124,7 +122,9 @@ const Navbar: React.FC = () => {
             {...fadeInAnimation}
             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -10 }}
           >
-            <Button text="Contact Me" bg="white" />
+            <Link href="/contact">
+              <Button text="Contact Me" bg="white" />
+            </Link>
           </motion.div>
 
           {/* Hamburger Menu (Mobile) */}
@@ -183,7 +183,9 @@ const Navbar: React.FC = () => {
               ))}
 
               <div className="mt-8">
-                <Button text="Contact Me" />
+                <Link href="/contact">
+                  <Button text="Contact Me" bg="white" />
+                </Link>
               </div>
             </motion.div>
           </motion.div>
