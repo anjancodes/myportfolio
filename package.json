@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.2",
     "@tabler/icons-react": "^3.31.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -16,7 +17,7 @@
     "hamburger-react": "^2.5.2",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.484.0",
-    "motion": "^12.6.1",
+    "motion": "^12.6.3",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Button from "../../components/ui/Button";
 import { FloatingDock } from "@/components/ui/floating-dock";
+import { MagicCard } from "../../components/magicui/magic-card";
 
 import {
   IconBrandGithub,
@@ -11,6 +12,22 @@ import {
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
+
+import { MdOutlineEmail } from "react-icons/md";
+import { FaLinkedinIn } from "react-icons/fa";
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+// import { useThemes } from "next-themes";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -35,44 +52,18 @@ const Contact: React.FC = () => {
   // Define links outside of any function but inside the component
   const links = [
     {
-      title: "Home",
+      title: "Email",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <MdOutlineEmail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "mailto:anjushetty86@gmail.com",
     },
     {
-      title: "Products",
+      title: "LinkedIn",
       icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <FaLinkedinIn className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-    {
-      title: "Components",
-      icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    // {
-    //   title: "Aceternity UI",
-    //   icon: (
-    //     <Image
-    //       src="https://assets.aceternity.com/logo-dark.png"
-    //       width={20}
-    //       height={20}
-    //       alt="Aceternity Logo"
-    //     />
-    //   ),
-    //   href: "#",
-    // },
-    {
-      title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "https://www.linkedin.com/in/asr06/",
     },
     {
       title: "Twitter",
@@ -92,38 +83,34 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <section className="container p-8 bg-purple-50 rounded-lg shadow-md max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold text-gray-800">Get in touch</h1>
-        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 min-h-[100px] "
-          />
-          <Button text="Send Message" bg="black" />
-        </form>
-      </section>
+      <Card>
+      <MagicCard>
+        <CardHeader>
+          <CardTitle>Login</CardTitle>
+          <CardDescription>
+            Enter your credentials to access your account
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form>
+            <div className="grid gap-4">
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="name@example.com" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="password">Password</Label>
+                <Input id="password" type="password" />
+              </div>
+            </div>
+          </form>
+        </CardContent>
+        <CardFooter>
+          {/* <Button className="w-full">Sign In</Button> */}
+        </CardFooter>
+      </MagicCard>
+    </Card>
+
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
         <FloatingDock items={links} desktopClassName="bg-transparent" />
       </div>
