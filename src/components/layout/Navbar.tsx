@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
       animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="bg-black/50 text-white py-4 px-6 border-b border-white/10">
+      <div className="bg-black/50 text-white py-4 px-6 border-b border-dashed  border-white/10">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <motion.div

@@ -4,10 +4,11 @@ import { CgArrowTopRightO } from "react-icons/cg";
 
 type ButtonProps = {
   text?: string;
-  bg?: 'black' | 'white'; 
+  bg?: 'black' | 'white';
+  className?: string; // Add className prop
 };
 
-const Button = ({ text = "Contact", bg = "white" }: ButtonProps) => {
+const Button = ({ text = "Contact", bg = "white", className = "" }: ButtonProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Determine text color based on background
@@ -30,6 +31,7 @@ const Button = ({ text = "Contact", bg = "white" }: ButtonProps) => {
         transition-all duration-400
         cursor-pointer
         border-1
+        ${className} // Add the custom className here
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

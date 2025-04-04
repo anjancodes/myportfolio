@@ -2,6 +2,7 @@ import { Sora } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 // import TransitionLayout from '../components/ui/PageTransition';
 import "./globals.css";
+import TransitionLayout from "@/components/layout/TransitionLayout";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -19,26 +20,14 @@ export default function RootLayout({
       <body className={`${sora.className} relative min-h-screen bg-black`}>
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
-          <main className="flex-grow">{children}</main>
+          <TransitionLayout>
+            <main className="flex-grow">{children}</main>
+          </TransitionLayout>
         </div>
       </body>
     </html>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import './globals.css';
 // import TransitionLayout from '../components/ui/PageTransition';

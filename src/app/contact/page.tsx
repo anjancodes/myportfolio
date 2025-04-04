@@ -1,33 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import Button from "../../components/ui/Button";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { MagicCard } from "../../components/magicui/magic-card";
+import { MagicCard } from "@/components/ui/MagicCard";
 
-import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-// import { useThemes } from "next-themes";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { useTheme } from "next-themes";
+import Button from "@/components/ui/Button";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -45,11 +27,9 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Form submitted:", formData);
   };
 
-  // Define links outside of any function but inside the component
   const links = [
     {
       title: "Email",
@@ -81,40 +61,104 @@ const Contact: React.FC = () => {
     },
   ];
 
-  return (
-    <>
-      <Card>
-      <MagicCard>
-        <CardHeader>
-          <CardTitle>Login</CardTitle>
-          <CardDescription>
-            Enter your credentials to access your account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="name@example.com" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" />
-              </div>
-            </div>
-          </form>
-        </CardContent>
-        <CardFooter>
-          {/* <Button className="w-full">Sign In</Button> */}
-        </CardFooter>
-      </MagicCard>
-    </Card>
+  const { theme } = useTheme();
 
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+  return (
+    <section className="container max-w-6xl mx-auto py-10 max-md:px-4 mt-15">
+      <h1 className="mb-8 text-3xl font-bold text-center text-white dark:text-white">
+        Contact Me
+      </h1>
+
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <MagicCard className="flex items-center justify-center">
+          <h2 className="text-white text-2xl mb-4">My Resume</h2>
+          <Button text="Download" />
+        </MagicCard>
+
+
+        {/* Contact Form Card */}
+        <MagicCard className="h-full">
+          <h2 className="text-xl font-semibold mb-4 text-white dark:text-white">
+            Send a Message
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+
+            {/* Name */}
+            <div>
+              <label
+                htmlFor="name"
+                className="block mb-2 text-sm font-medium text-neutral-300 dark:text-neutral-300"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                placeholder="Enter your name"
+                autoComplete="off"
+                onChange={handleChange}
+                className="w-full px-4 py-2 rounded-md border border-neutral-700 bg-black text-white  focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-neutral-300 dark:text-neutral-300"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                placeholder="example@email.com"
+                autoComplete="off"
+                onChange={handleChange}
+                className="w-full px-4 py-2 rounded-md border border-neutral-700 bg-black text-white focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-200"
+                required
+              />
+            </div>
+
+            {/* Text */}
+            <div>
+              <label
+                htmlFor="message"
+                className="block mb-2 text-sm font-medium text-neutral-300 dark:text-neutral-300"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                autoComplete="off"
+                placeholder="Enter your text"
+                onChange={handleChange}
+                rows={4}
+                className="w-full px-4 py-2 rounded-md border border-neutral-700 bg-black text-white focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-200"
+                required
+              />
+            </div>
+
+            <Button text="Send" bg="white" className="w-full"/>
+
+          </form>
+        </MagicCard>
+
+
+      </div>
+
+      <div className="fixed lg:bottom-6 lg:left-1/2 bottom-6 max-md:right-0 transform -translate-x-1/2 z-50">
         <FloatingDock items={links} desktopClassName="bg-transparent" />
       </div>
-    </>
+    </section>
   );
 };
 
