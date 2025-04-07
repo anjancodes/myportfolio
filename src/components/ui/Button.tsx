@@ -20,8 +20,12 @@ const Button = ({ text = "Contact", bg = "white", className = "" }: ButtonProps)
   // Determine hover text color (inverse of textColor)
   const hoverTextColor = textColor === 'black' ? 'white' : 'black';
   
-  // Determine border color (same as text color when hovered)
-  const borderColor = isHovered ? textColor : 'transparent';
+  // Set initial border color based on background
+  // For black background, show white border even before hover
+  const initialBorderColor = bg === 'black' ? 'white' : 'transparent';
+  
+  // Determine border color when hovered
+  const hoverBorderColor = bg === 'black' ? 'black' : 'white';
   
   return (
     <button
@@ -38,7 +42,7 @@ const Button = ({ text = "Contact", bg = "white", className = "" }: ButtonProps)
       style={{
         backgroundColor: isHovered ? hoverBgColor : bg,
         color: isHovered ? hoverTextColor : textColor,
-        borderColor: isHovered ? (bg === 'black' ? 'black' : 'white') : 'transparent'
+        borderColor: isHovered ? hoverBorderColor : initialBorderColor
       }}
     >
       {text}

@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { MagicCard } from "@/components/ui/MagicCard";
+import { Globe } from "../../components/magicui/globe";
 
 import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
 
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
 
 import { useTheme } from "next-themes";
 import Button from "@/components/ui/Button";
@@ -64,26 +66,44 @@ const Contact: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="container max-w-6xl mx-auto py-10 max-md:px-4 mt-15">
+    <section className="container max-w-6xl mx-auto py-10 max-lg:px-4 mt-15">
       <h1 className="mb-8 text-3xl font-bold text-center text-white dark:text-white">
         Contact Me
       </h1>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <MagicCard className="flex items-center justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* <MagicCard className="flex items-center justify-center">
           <h2 className="text-white text-2xl mb-4">My Resume</h2>
           <Button text="Download" />
-        </MagicCard>
+          </MagicCard> */}
 
+        <div className="lg:flex hidden flex-row gap-4 items-center justify-center max-md:order-2">
+          {/* <div className="flex flex-col items-center justify-center border border-white/50 rounded-2xl gap-2 py-6 px-14 w-full">
+            <h2 className="text-white text-xl text-center">Resume</h2>
+            <p className="text-white/50 text-center">My experience and works</p>
+            <Button text="Download" bg="black" />
+          </div>
+          <div className="flex flex-col items-center justify-center border border-white/50 rounded-2xl gap-2 py-6 px-14 w-full">
+            <h2 className="text-white text-xl text-center">Cover Letter</h2>
+            <p className="text-white/50 text-center">My experience and works</p>
+            <Button text="Download" bg="black" />
+          </div> */}
+          <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg border border-white/30 bg-black px-40 md:pb-60">
+            <span className="flex text-white text-center text-lg font-semibold leading-none">
+            <IoLocationSharp className="text-white" />
+              Bengaluru, India
+            </span>
+            <Globe className="top-32" />
+            <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+          </div>
+        </div>
 
         {/* Contact Form Card */}
-        <MagicCard className="h-full">
-          <h2 className="text-xl font-semibold mb-4 text-white dark:text-white">
+        <MagicCard className="h-full max-md:order-1">
+          {/* <h2 className="text-xl font-semibold mb-4 text-white dark:text-white">
             Send a Message
-          </h2>
+          </h2> */}
           <form onSubmit={handleSubmit} className="space-y-4">
-
             {/* Name */}
             <div>
               <label
@@ -147,15 +167,12 @@ const Contact: React.FC = () => {
               />
             </div>
 
-            <Button text="Send" bg="white" className="w-full"/>
-
+            <Button text="Send" bg="white" className="w-full" />
           </form>
         </MagicCard>
-
-
       </div>
 
-      <div className="fixed lg:bottom-6 lg:left-1/2 bottom-6 max-md:right-0 transform -translate-x-1/2 z-50">
+      <div className="fixed lg:bottom-6 lg:left-1/2 bottom-6 max-lg:right-0 transform -translate-x-1/2 z-50">
         <FloatingDock items={links} desktopClassName="bg-transparent" />
       </div>
     </section>

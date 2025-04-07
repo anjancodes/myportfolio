@@ -1,8 +1,8 @@
 import { Sora } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
-// import TransitionLayout from '../components/ui/PageTransition';
 import "./globals.css";
 import TransitionLayout from "@/components/layout/TransitionLayout";
+import Footer from "@/components/layout/Footer";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -23,33 +23,9 @@ export default function RootLayout({
           <TransitionLayout>
             <main className="flex-grow">{children}</main>
           </TransitionLayout>
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
   );
 }
-
-// import './globals.css';
-// import TransitionLayout from '../components/ui/PageTransition';
-// import { Metadata } from 'next';
-
-// export const metadata: Metadata = {
-//   title: 'My Portfolio',
-//   description: 'My awesome portfolio website',
-// };
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return (
-//     <html lang="en">
-//       <body>
-//         <TransitionLayout>
-//           {children}
-//         </TransitionLayout>
-//       </body>
-//     </html>
-//   );
-// }
