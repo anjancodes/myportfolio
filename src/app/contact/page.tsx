@@ -10,7 +10,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import Button from "@/components/ui/Button";
 
 const Contact: React.FC = () => {
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
     },
   ];
 
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   return (
     <section className="container max-w-6xl mx-auto py-10 max-lg:px-4 mt-15">

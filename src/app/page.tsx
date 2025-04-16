@@ -10,7 +10,6 @@ import { Spotlight } from "../components/magicui/spotlight-new";
 export default function Home() {
   return (
     <section className="relative min-h-screen w-full bg-black text-white flex flex-col items-center justify-center text-center px-4">
-
       {/* Particles Background */}
       <Particles
         className="absolute inset-0 z-0"
@@ -36,7 +35,7 @@ export default function Home() {
               />
             </div>
             <div className="ml-2">
-              <p className="lg:text-lg text-sm">Hello! I'm Anjan :)</p>
+              <p className="lg:text-lg text-sm">Hello! I&apos;m Anjan :)</p>
             </div>
           </div>
         </div>
@@ -65,15 +64,12 @@ export default function Home() {
       <div>
         <Lottie animationData={scroll} loop={true} />
       </div>
-
-
     </section>
   );
 }
 
-
-
-
-{/* <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+{
+  /* <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
         <FloatingDock items={links} desktopClassName="bg-transparent" />
-      </div> */}
+      </div> */
+}

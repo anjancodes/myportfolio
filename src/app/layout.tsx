@@ -2,7 +2,7 @@ import { Sora } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 import TransitionLayout from "@/components/layout/TransitionLayout";
-import Footer from "@/components/layout/Footer";
+// import Footer from "@/components/layout/Footer";
 
 const sora = Sora({
   subsets: ["latin"],
