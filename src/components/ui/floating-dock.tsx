@@ -141,7 +141,6 @@ function IconContainer({
     stiffness: 150,
     damping: 12,
   });
-  
   const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
@@ -153,7 +152,6 @@ function IconContainer({
     stiffness: 150,
     damping: 12,
   });
-  
   const heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
