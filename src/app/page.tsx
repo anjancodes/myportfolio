@@ -1,13 +1,30 @@
 "use client";
 
-import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import components that use browser APIs with SSR disabled
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+const Particles = dynamic(() => import("../components/magicui/particles").then(mod => ({ default: mod.Particles })), { ssr: false });
+const Spotlight = dynamic(() => import("../components/magicui/spotlight-new").then(mod => ({ default: mod.Spotlight })), { ssr: false });
+
+// Import JSON files
 import hi from "../../public/lottie/hi.json";
 import scroll from "../../public/lottie/scroll-down.json";
-import { Particles } from "../components/magicui/particles";
-import { Spotlight } from "../components/magicui/spotlight-new";
-// import { TextAnimate } from "../components/magicui/text-animate";
 
 export default function Home() {
+  // Use state to track if component is mounted (client-side)
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Return a simple loading state or null during SSR
+  if (!isMounted) {
+    return <div className="min-h-screen w-full bg-black"></div>;
+  }
+
   return (
     <section className="relative min-h-screen w-full bg-black text-white flex flex-col items-center justify-center text-center px-4">
       {/* Particles Background */}
@@ -35,7 +52,7 @@ export default function Home() {
               />
             </div>
             <div className="ml-2">
-              <p className="lg:text-lg text-sm">Hello! I&apos;m Anjan :)</p>
+              <p className="lg:text-lg text-sm">Hello! I'm Anjan :)</p>
             </div>
           </div>
         </div>
