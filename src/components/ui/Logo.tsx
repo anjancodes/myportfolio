@@ -6,7 +6,7 @@ import Image from "next/image";
 const Logo: React.FC = () => {
   return (
     <Link href="/" className="group relative flex items-center">
-      <Image src="/Logo.svg" alt="Logo" width={35} height={35} priority />
+      <Image src="/logo.svg" alt="Logo" width={35} height={35} priority />
     </Link>
   );
 };
